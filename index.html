@@ -36,7 +36,9 @@
         <div class="panel panel-primary">
           <div class="panel-heading">Как пользоваться сервисом</div>
           <div class="panel-body">
-            Тут будет инструкция
+            Красные маркеры - объекты инфраструктуры.<br>
+            Жёлтые маркеры - площадки ТОСЭР "Комсомольск".<br>
+            Детальную информацию об объекте или площадке можно получить, кликнув на маркер.
           </div>
         </div>
       </div>
@@ -82,7 +84,7 @@
     </div>
 
     <div class="row">
-      <p style="text-align:center;"><img src="404.jpeg" id="street"></img></p>
+      <p style="text-align:center;"><img width=600 height=300 src="builds/404.jpg" id="street"></img></p>
     </div>
 
     <script>
@@ -219,15 +221,15 @@
 
         // Обработчики
         m1.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/park.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Промышленный парк</strong><br>Статус: Проект<br>Зона: Парус<br>Сфера: Производство<br>Площадь: 12 Га<br>Инвестиции: 175 млн рублей<br>Стоимость: 0 рублей";
         });
         m2.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/gruzovie.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Завод по сборке грузовых автомобилей</strong><br>Статус: Строительство<br>Зона: Парус<br>Сфера: Производство<br>Инвестиции: 1,9 млн рублей<br>Стоимость: 2,4 млн рублей";
         });
         m3.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/permskoe.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Этнографический музейный комплекс 'Дзумени'</strong><br>Статус: Строительство<br>Зона: Район городской набережной<br>Сфера: Культурно-досуговая<br>Площадь: 1,5 тыс. кв. м<br>Инвестиции: 50 тысяч рублей<br>Стоимость: 50 тысяч рублей";
         });
         m5.addListener('click', function() {
@@ -235,67 +237,67 @@
           document.getElementById("infobj").innerHTML = "<strong>Высокотехнологичное производство стеклянной тары</strong><br>Статус: Проект<br>Местоположение: Аллея Труда, 1<br>Сфера: Производство<br>Инвестиции: 586 млн рублей<br>Стоимость: 586 млн рублей";
         });
         m7.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/silin.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Эко-комплекс 'Силин лес'</strong><br>Статус: Проект<br>Зона: Силинский парк<br>Сфера: Туризм<br>Инвестиции: 124 тыс. рублей<br>Стоимость: 165 тыс. рублей";
         });
         m8.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/gostin.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Гостиничный комплекс</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Туризм<br>Инвестиции: 59376 рублей<br>Стоимость: 75435 рублей";
         });
         m9.addListener('click', function() {
-          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.532253,137.025886&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("street").src="builds/legendi.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Музейно-развлекательный центр 'Легенды-на-Амуре'</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Культурно-досуговая<br>Площадь: 1,2 тыс. кв. м<br>Инвестиции: 115000 рублей<br>Стоимость: 190000 рублей";
         });
         m10.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/permskoe.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Гостиничный этнографический комплекс 'Село Пермское'</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Туризм<br>Площадь: 12,7 тыс. кв. м<br>Инвестиции: 72000 рублей<br>Стоимость: 72000 рублей";
         });
         m11.addListener('click', function() {
-          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.533668,137.031795&heading=90&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("street").src="builds/kongress.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Выставочный центр 'Конгресс-Холл'</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Культурно-досуговая<br>Площадь: 1,2 тыс. кв. м<br>Инвестиции: 250500 рублей<br>Стоимость: 320000 рублей";
         });
         m12.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/aquapark.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Торгово-развлекательный центр с аквапарком</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Культурно-досуговая<br>Площадь: 36500 тыс. кв. м<br>Инвестиции: 2,6 млн рублей<br>Стоимость: 2,6 млн рублей";
         });
         m13.addListener('click', function() {
-          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.567421,136.991907&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("street").src="builds/metallurg.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Санаторный комплекс 'Металлург'</strong><br>Статус: Модернизация<br>Местоположение: ул. Металлургов, 3<br>Сфера: Медицина<br>Площадь: 3730 кв. м<br>Инвестиции: 0 рублей<br>Стоимость: 60000 рублей";
         });
         m14.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/alternativa.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Лечебно-диагностический центр 'Альтернатива'</strong><br>Статус: Строительство<br>Сфера: Медицина<br>Площадь: 2056,5 кв. м<br>Инвестиции: 100000 рублей<br>Стоимость: 100000 рублей";
         });
         m15.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/snezinka.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Спортивная база 'Снежинка'</strong><br>Статус: Модернизация<br>Зона: База отдыха 'Снежинка'<br>Сфера: Туризм<br>Площадь: 12262 кв. м<br>Инвестиции: 114400 рублей<br>Стоимость: 152000 рублей";
         });
         m16.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/musor.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Мусоросортировочный комплекс</strong><br>Статус: Проект<br>Местоположение: ул. Водонасосная, 1<br>Сфера: Производство<br>Инвестиции: 60000 рублей<br>Стоимость: 200000 рублей";
         });
         m17.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/pokriski.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Предприятие по переработке изношенных автопокрышек и производство изделий из резиновой крошки</strong><br>Статус: Проект<br>Зона: Амурлитмаш<br>Сфера: Производство<br>Инвестиции: 12000 рублей<br>Стоимость: 12000 рублей";
         });
         m18.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/detsad.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Школа №38</strong><br>Статус: Реконструкция<br>Местоположение: ул. Пермская, 5/3<br>Сфера: Образование<br>Инвестиции: 0 рублей<br>Стоимость: 0 рублей";
         });
         m19.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
+          document.getElementById("street").src="builds/detsad.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Детский сад №134</strong><br>Статус: Реконструкция<br>Местоположение: ул. Пермская, 5/2<br>Сфера: Образование<br>Инвестиции: 0 рублей<br>Стоимость: 0 рублей";
         });
         m20.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg"
+          document.getElementById("street").src="builds/inzener.jpg"
           document.getElementById("infobj").innerHTML = "<strong>Инженерная школа</strong><br>Статус: Реконструкция<br>Местоположение: ул. Вокзальная, 39<br>Сфера: Образование<br>Инвестиции: 0 рублей<br>Стоимость: 437250000 рублей";
         });
         m22.addListener('click', function() {
-          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.542719,137.040419&heading=90&pitch=0.5&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("street").src="builds/vodozabor.jpg";
           document.getElementById("infobj").innerHTML = "<strong>Комплекс деманганации вод</strong><br>Статус: Проект<br>Местоположение: ул. Аллея Труда, 1<br>Сфера: Промышленность<br>Инвестиции: 0 рублей<br>Стоимость: 1610 млн рублей";
         });
         m23.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg"
+          document.getElementById("street").src="builds/sport.jpg"
           document.getElementById("infobj").innerHTML = "<strong>Региональный центр развития спорта</strong><br>Статус: Проект<br>Местоположение: ул. Ленинградская<br>Сфера: Спорт<br>Инвестиции: 0 рублей<br>Стоимость: 150 млн рублей";
         });
 
@@ -322,19 +324,19 @@
         });
 
         m_amursk.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg"
+          document.getElementById("street").src=""
           document.getElementById("infobj").innerHTML = "<strong>Площадка 'Амурск'</strong><br>Площадь: 94,3 Га<br>Площадь земельных участков в пределах кадастровых кварталов: 65 Га<br><br>Инвесторы:<br>ПАО 'Амурская лесопромышленная компания'<br>ЗАО 'Амурский промышленный центр'";
         });
         m_parus.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg"
+          document.getElementById("street").src=""
           document.getElementById("infobj").innerHTML = "<strong>Площадка 'Парус'</strong><br>Площадь: 59,4 Га<br>Площадь земельных участков в пределах кадастровых кварталов: 47,2 Га<br>Свободные земельные участки: 45 Га<br>Тип: Гринфилд<br><br>Инвесторы:<br>ПАО 'Эпсилон 2'<br>'Комсомольский мясокомбинат'";
         });
         m_amurlitmash.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg"
+          document.getElementById("street").src=""
           document.getElementById("infobj").innerHTML = "<strong>Площадка 'Амурлитмаш'</strong><br>Площадь: 62,2 Га<br>Площадь земельных участков в пределах кадастровых кварталов: 65 Га<br>Свободные земельные участки: 45 Га<br>Тип: Браунфилд<br><br>Инвесторы:<br>ПАО 'Комсомольский машиностроительный завод'<br>ПАО УК ИП 'Амурлитмаш'<br>ПАО 'Торговый дом Юкон'<br>'АКОР Инструмент'";
         });
         m_holdomi.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg"
+          document.getElementById("street").src=""
           document.getElementById("infobj").innerHTML = "<strong>Площадка 'Холдоми'</strong><br>Статус: Модернизация<br>Зона: Холдоми<br>Сфера: Культурно-досуговая<br>Площадь: 56 Га<br>Инвестиции: 800 млн рублей<br>Стоимость: 0 рублей";
         });
       }
