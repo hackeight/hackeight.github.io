@@ -206,11 +206,6 @@
           map: map,
           label: "R"
         });
-        var m21 = new google.maps.Marker({
-          position: a21,
-          map: map,
-          label: "S"
-        });
         var m22 = new google.maps.Marker({
           position: a22,
           map: map,
@@ -295,10 +290,6 @@
           document.getElementById("street").src="404.jpeg"
           document.getElementById("infobj").innerHTML = "<strong>Инженерная школа</strong><br>Статус: Реконструкция<br>Местоположение: ул. Вокзальная, 39<br>Сфера: Образование<br>Инвестиции: 0 рублей<br>Стоимость: 437250000 рублей";
         });
-        m21.addListener('click', function() {
-          document.getElementById("street").src="404.jpeg";
-          document.getElementById("infobj").innerHTML = "<strong>Лыжная база Холдоми</strong><br>Статус: Модернизация<br>Зона: Холдоми<br>Сфера: Культурно-досуговая<br>Площадь: 56 Га<br>Инвестиции: 800 млн рублей<br>Стоимость: 0 рублей";
-        });
         m22.addListener('click', function() {
           document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.542719,137.040419&heading=90&pitch=0.5&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
           document.getElementById("infobj").innerHTML = "<strong>Комплекс деманганации вод</strong><br>Статус: Проект<br>Местоположение: ул. Аллея Труда, 1<br>Сфера: Промышленность<br>Инвестиции: 0 рублей<br>Стоимость: 1610 млн рублей";
@@ -306,6 +297,45 @@
         m23.addListener('click', function() {
           document.getElementById("street").src="404.jpeg"
           document.getElementById("infobj").innerHTML = "<strong>Региональный центр развития спорта</strong><br>Статус: Проект<br>Местоположение: ул. Ленинградская<br>Сфера: Спорт<br>Инвестиции: 0 рублей<br>Стоимость: 150 млн рублей";
+        });
+
+
+        var m_amursk = new google.maps.Marker({
+          position: {lat: 50.2458, lng: 136.8555},
+          map: map,
+          icon: "yellow_MarkerW.png"
+        });
+        var m_parus = new google.maps.Marker({
+          position: {lat: 50.560732, lng: 137.061988},
+          map: map,
+          icon: "yellow_MarkerX.png"
+        });
+        var m_amurlitmash = new google.maps.Marker({
+          position: {lat: 50.600633, lng: 137.025950},
+          map: map,
+          icon: "yellow_MarkerY.png"
+        });
+        var m_holdomi = new google.maps.Marker({
+          position: a21,
+          map: map,
+          icon: "yellow_MarkerZ.png"
+        });
+
+        m_amursk.addListener('click', function() {
+          document.getElementById("street").src="404.jpeg"
+          document.getElementById("infobj").innerHTML = "<strong>Площадка 'Амурск'</strong><br>Площадь: 94,3 Га<br>Площадь земельных участков в пределах кадастровых кварталов: 65 Га<br><br>Инвесторы:<br>ПАО 'Амурская лесопромышленная компания'<br>ЗАО 'Амурский промышленный центр'";
+        });
+        m_parus.addListener('click', function() {
+          document.getElementById("street").src="404.jpeg"
+          document.getElementById("infobj").innerHTML = "<strong>Площадка 'Парус'</strong><br>Площадь: 59,4 Га<br>Площадь земельных участков в пределах кадастровых кварталов: 47,2 Га<br>Свободные земельные участки: 45 Га<br>Тип: Гринфилд<br><br>Инвесторы:<br>ПАО 'Эпсилон 2'<br>'Комсомольский мясокомбинат'";
+        });
+        m_amurlitmash.addListener('click', function() {
+          document.getElementById("street").src="404.jpeg"
+          document.getElementById("infobj").innerHTML = "<strong>Площадка 'Амурлитмаш'</strong><br>Площадь: 62,2 Га<br>Площадь земельных участков в пределах кадастровых кварталов: 65 Га<br>Свободные земельные участки: 45 Га<br>Тип: Браунфилд<br><br>Инвесторы:<br>ПАО 'Комсомольский машиностроительный завод'<br>ПАО УК ИП 'Амурлитмаш'<br>ПАО 'Торговый дом Юкон'<br>'АКОР Инструмент'";
+        });
+        m_holdomi.addListener('click', function() {
+          document.getElementById("street").src="404.jpeg"
+          document.getElementById("infobj").innerHTML = "<strong>Площадка 'Холдоми'</strong><br>Статус: Модернизация<br>Зона: Холдоми<br>Сфера: Культурно-досуговая<br>Площадь: 56 Га<br>Инвестиции: 800 млн рублей<br>Стоимость: 0 рублей";
         });
       }
     </script>
