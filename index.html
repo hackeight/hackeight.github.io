@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ТОСЭР "Комсомольск"</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div class="row">
+      <div class="col-md-8">
+        <h1 align="center">Интерактивная карта<br>
+        <small>ТОСЭР "Комсомольск"</small></h1>
+      </div>
+      <div class="col-md-4">
+        <img align="center" src="gerb.png"></img>
+      </div>
+      <hr style="width: 100%; color: black; height: 5px; background-color:black;" />
+    </div>
+
+    <!-- How to + info -->
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Как пользоваться сервисом</div>
+          <div class="panel-body">
+            Тут будет инструкция
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="panel panel-info">
+          <div class="panel-heading">Информация</div>
+          <div class="panel-body">
+            Веб-сервис сделан специально для хакатона "Дальневосточный фокус" (16-18 мая 2017 года) командой №3.
+            <br><br>
+            Состав команды:<br>
+            <ul>
+              <li>Сергей Белоусов</li>
+              <li>Ирина Андросова</li>
+              <li>Татьяна Барышева</li>
+              <li>Влад Верховский</li>
+              <li>Алёна Вагина</li>
+              <li>Елизавета Васильева</li>
+              <li>Надежда Чистякова</li>
+              <li>Михаил Миненко</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+
+    <!-- GOOGLE MAP -->
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="alert alert-success">
+          <p style="text-align:center;" id="infobj"><strong>Информация об объекте</strong><br>
+          Объект не выбран</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <p style="text-align:center;"><img src="404.jpeg" id="street"></img></p>
+    </div>
+
+    <script>
+      function initMap() {
+        // Объекты
+        var a1 = {lat: 50.555368, lng: 137.062641}; // Промышленный парк
+        var a2 = {lat: 50.556339, lng: 137.058139}; // Завод грузовых автомобилей
+        var a3 = {lat: 50.528923, lng: 137.018376}; // Этнографический музейный комплекс "Дзумени"
+        var a5 = {lat: 50.542719, lng: 137.040419}; // Высокотехнологичное производство стеклянной тары
+        var a7 = {lat: 50.572841, lng: 137.039932}; // Эко-комплекс "Силин лес"
+        var a8 = {lat: 50.519575, lng: 137.004515}; // Гостиничный комплекс
+        var a9 = {lat: 50.532253, lng: 137.025886}; // Музейно-развлекательный центр "Легенды-на-Амуре"
+        var a10 = {lat: 50.528547, lng: 137.018896}; // Гостиничный этнографический комплекс "Село Пермское"
+        var a11 = {lat: 50.533668, lng: 137.031795}; // Выставочный центр "Конгресс-Холл"
+        var a12 = {lat: 50.533137, lng: 137.021644}; // Торгово-развлекательный центр с аквапарком
+        var a13 = {lat: 50.567421, lng: 136.991907}; // Санаторный комплекс "Металлург"
+        var a14 = {lat: 50.543636, lng: 136.985306}; // Лечебно-диагностический центр "Альтернатива"
+        var a15 = {lat: 50.614872, lng: 137.028161}; // Спортивная база "Снежинка"
+        var a16 = {lat: 50.606258, lng: 137.036615}; // Мусоросортировочный комплекс
+        var a17 = {lat: 50.600622, lng: 137.053410}; // Предприятие по переработке изношенных автопокрышек и производство изделий из резиновой крошки
+        var a18 = {lat: 50.560580, lng: 137.049307}; // Школа №38
+        var a19 = {lat: 50.559694, lng: 137.050823}; // Детский сад №134
+        var a20 = {lat: 50.548656, lng: 136.993467}; // Инженерная школа
+        var a21 = {lat: 50.740412, lng: 136.568247}; // Холдоми
+        var a22 = {lat: 50.542319, lng: 137.040340}; // Водозабор
+        var a23 = {lat: 50.594215, lng: 137.060025}; // Региональный центр развития спорта
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: 50.574375, lng: 137.015038}
+        });
+
+        // Маркеры
+        var m1 = new google.maps.Marker({
+          position: a1,
+          map: map,
+          label: "A"
+        });
+        var m2 = new google.maps.Marker({
+          position: a2,
+          map: map,
+          label: "B"
+        });
+        var m3 = new google.maps.Marker({
+          position: a3,
+          map: map,
+          label: "C"
+        });
+        var m5 = new google.maps.Marker({
+          position: a5,
+          map: map,
+          label: "D"
+        });
+        var m7 = new google.maps.Marker({
+          position: a7,
+          map: map,
+          label: "E"
+        });
+        var m8 = new google.maps.Marker({
+          position: a8,
+          map: map,
+          label: "F"
+        });
+        var m9 = new google.maps.Marker({
+          position: a9,
+          map: map,
+          label: "G"
+        });
+        var m10 = new google.maps.Marker({
+          position: a10,
+          map: map,
+          label: "H"
+        });
+        var m11 = new google.maps.Marker({
+          position: a11,
+          map: map,
+          label: "I"
+        });
+        var m12 = new google.maps.Marker({
+          position: a12,
+          map: map,
+          label: "J"
+        });
+        var m13 = new google.maps.Marker({
+          position: a13,
+          map: map,
+          label: "K"
+        });
+        var m14 = new google.maps.Marker({
+          position: a14,
+          map: map,
+          label: "L"
+        });
+        var m15 = new google.maps.Marker({
+          position: a15,
+          map: map,
+          label: "M"
+        });
+        var m16 = new google.maps.Marker({
+          position: a16,
+          map: map,
+          label: "N"
+        });
+        var m17 = new google.maps.Marker({
+          position: a17,
+          map: map,
+          label: "O"
+        });
+        var m18 = new google.maps.Marker({
+          position: a18,
+          map: map,
+          label: "P"
+        });
+        var m19 = new google.maps.Marker({
+          position: a19,
+          map: map,
+          label: "Q"
+        });
+        var m20 = new google.maps.Marker({
+          position: a20,
+          map: map,
+          label: "R"
+        });
+        var m21 = new google.maps.Marker({
+          position: a21,
+          map: map,
+          label: "S"
+        });
+        var m22 = new google.maps.Marker({
+          position: a22,
+          map: map,
+          label: "T"
+        });
+        var m23 = new google.maps.Marker({
+          position: a23,
+          map: map,
+          label: "U"
+        });
+
+        // Обработчики
+        m1.addListener('click', function() {
+          document.getElementById("street").src="404.jpeg";
+          document.getElementById("infobj").innerHTML = "<strong>Промышленный парк</strong><br>Статус: Проект<br>Зона: Парус<br>Сфера: Производство<br>Площадь: 12 Га<br>Инвестиции: 175 млн рублей<br>Стоимость: 0 рублей";
+        });
+        m2.addListener('click', function() {
+          document.getElementById("street").src="404.jpeg";
+          document.getElementById("infobj").innerHTML = "<strong>Завод по сборке грузовых автомобилей</strong><br>Статус: Строительство<br>Зона: Парус<br>Сфера: Производство<br>Инвестиции: 1,9 млн рублей<br>Стоимость: 2,4 млн рублей";
+        });
+        m3.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.528923,137.018376&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Этнографический музейный комплекс 'Дзумени'</strong><br>Статус: Строительство<br>Зона: Район городской набережной<br>Сфера: Культурно-досуговая<br>Площадь: 1,5 тыс. кв. м<br>Инвестиции: 50 тысяч рублей<br>Стоимость: 50 тысяч рублей";
+        });
+        m5.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.542719,137.040419&heading=90&pitch=0.5&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Высокотехнологичное производство стеклянной тары</strong><br>Статус: Проект<br>Местоположение: Аллея Труда, 1<br>Сфера: Производство<br>Инвестиции: 586 млн рублей<br>Стоимость: 586 млн рублей";
+        });
+        m7.addListener('click', function() {
+          document.getElementById("street").src="404.jpeg";
+          document.getElementById("infobj").innerHTML = "<strong>Эко-комплекс 'Силин лес'</strong><br>Статус: Проект<br>Зона: Силинский парк<br>Сфера: Туризм<br>Инвестиции: 124 тыс. рублей<br>Стоимость: 165 тыс. рублей";
+        });
+        m8.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.519575,137.004515&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Гостиничный комплекс</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Туризм<br>Инвестиции: 59376 рублей<br>Стоимость: 75435 рублей";
+        });
+        m9.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.532253,137.025886&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Музейно-развлекательный центр 'Легенды-на-Амуре'</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Культурно-досуговая<br>Площадь: 1,2 тыс. кв. м<br>Инвестиции: 115000 рублей<br>Стоимость: 190000 рублей";
+        });
+        m10.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.528547,137.018896&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Гостиничный этнографический комплекс 'Село Пермское'</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Туризм<br>Площадь: 12,7 тыс. кв. м<br>Инвестиции: 72000 рублей<br>Стоимость: 72000 рублей";
+        });
+        m11.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.533668,137.031795&heading=90&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Выставочный центр 'Конгресс-Холл'</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Культурно-досуговая<br>Площадь: 1,2 тыс. кв. м<br>Инвестиции: 250500 рублей<br>Стоимость: 320000 рублей";
+        });
+        m12.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.533137,137.021644&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Торгово-развлекательный центр с аквапарком</strong><br>Статус: Проект<br>Зона: Район городской набережной<br>Сфера: Культурно-досуговая<br>Площадь: 36500 тыс. кв. м<br>Инвестиции: 2,6 млн рублей<br>Стоимость: 2,6 млн рублей";
+        });
+        m13.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.567421,136.991907&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Санаторный комплекс 'Металлург'</strong><br>Статус: Модернизация<br>Местоположение: ул. Металлургов, 3<br>Сфера: Медицина<br>Площадь: 3730 кв. м<br>Инвестиции: 0 рублей<br>Стоимость: 60000 рублей";
+        });
+        m14.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.543636,136.985306&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Лечебно-диагностический центр 'Альтернатива'</strong><br>Статус: Строительство<br>Сфера: Медицина<br>Площадь: 2056,5 кв. м<br>Инвестиции: 100000 рублей<br>Стоимость: 100000 рублей";
+        });
+        m15.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.614872,137.028161&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Спортивная база 'Снежинка'</strong><br>Статус: Модернизация<br>Зона: База отдыха 'Снежинка'<br>Сфера: Туризм<br>Площадь: 12262 кв. м<br>Инвестиции: 114400 рублей<br>Стоимость: 152000 рублей";
+        });
+        m16.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.606258,137.036615&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Мусоросортировочный комплекс</strong><br>Статус: Проект<br>Местоположение: ул. Водонасосная, 1<br>Сфера: Производство<br>Инвестиции: 60000 рублей<br>Стоимость: 200000 рублей";
+        });
+        m17.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.600622,137.053410&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Предприятие по переработке изношенных автопокрышек и производство изделий из резиновой крошки</strong><br>Статус: Проект<br>Зона: Амурлитмаш<br>Сфера: Производство<br>Инвестиции: 12000 рублей<br>Стоимость: 12000 рублей";
+        });
+        m18.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.600622,137.053410&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Школа №38</strong><br>Статус: Реконструкция<br>Местоположение: ул. Пермская, 5/3<br>Сфера: Образование<br>Инвестиции: 0 рублей<br>Стоимость: 0 рублей";
+        });
+        m19.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.600622,137.053410&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Детский сад №134</strong><br>Статус: Реконструкция<br>Местоположение: ул. Пермская, 5/2<br>Сфера: Образование<br>Инвестиции: 0 рублей<br>Стоимость: 0 рублей";
+        });
+        m20.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.600622,137.053410&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30"
+          document.getElementById("infobj").innerHTML = "<strong>Инженерная школа</strong><br>Статус: Реконструкция<br>Местоположение: ул. Вокзальная, 39<br>Сфера: Образование<br>Инвестиции: 0 рублей<br>Стоимость: 437250000 рублей";
+        });
+        m21.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.600622,137.053410&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30";
+          document.getElementById("infobj").innerHTML = "<strong>Лыжная база Холдоми</strong><br>Статус: Модернизация<br>Зона: Холдоми<br>Сфера: Культурно-досуговая<br>Площадь: 56 Га<br>Инвестиции: 800 млн рублей<br>Стоимость: 0 рублей";
+        });
+        m22.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.600622,137.053410&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30"
+          document.getElementById("infobj").innerHTML = "<strong>Комплекс деманганации вод</strong><br>Статус: Проект<br>Местоположение: ул. Аллея Труда, 1<br>Сфера: Промышленность<br>Инвестиции: 0 рублей<br>Стоимость: 1610 млн рублей";
+        });
+        m23.addListener('click', function() {
+          document.getElementById("street").src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=50.600622,137.053410&heading=151.78&pitch=-0.76&key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30"
+          document.getElementById("infobj").innerHTML = "<strong>Региональный центр развития спорта</strong><br>Статус: Проект<br>Местоположение: ул. Ленинградская<br>Сфера: Спорт<br>Инвестиции: 0 рублей<br>Стоимость: 150 млн рублей";
+        });
+      }
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1KdkWi2TZ6I5MEx7PF4Q8_08ts7WLj30&callback=initMap">
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
